@@ -4,7 +4,7 @@
   "description": "Platzi Node.js 2",
   "main": "./src/index.js",
   "scripts": {
-    "dev": "DEBUG=app:* nodemon --exec ts-node src/index.ts",
+    "dev": "DEBUG=app:* nodemon --exec ts-node -r tsconfig-paths/register src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
   },
@@ -22,6 +22,7 @@
     "nodemon": "^2.0.14",
     "prettier": "2.4.1",
     "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.11.0",
     "typescript": "^4.4.4"
   },
   "dependencies": {
