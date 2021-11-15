@@ -1,0 +1,17 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Prettier
+files=$(git diff --name-only --cached --diff-filter=ACMR)
+if [ ! -z "$files" ]; then
+  npx prettier --write $files --ignore-unknown
+  git add $files
+fi
+
+# ESLint
+files=$(git diff --name-only --cached --diff-filter=ACMR "*.js" "*.ts" "*.jsx" "*.tsx")
+if [ ! -z "$files" ]; then
+  npx eslint $files --fix
+  git add $files
+fi
+
